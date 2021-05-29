@@ -1,5 +1,4 @@
-# ava_ciencia_de_dados
-Avaliação de ciência de dados
+# Avaliação de ciência de dados
 
 Atividade de Fixação - parte 1
 •Dada a amostra de dados selecionada por você na Aula 2, realize uma análise dos dados para encontrar outliers criando gráficos para entender a frequência de cada ocorrência
