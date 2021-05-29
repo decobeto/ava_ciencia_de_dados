@@ -21,8 +21,8 @@ print(df)
 print (df.dtypes)
 
 # Remove outliers
-df = pd.DataFrame(np.random.rand(100, 3))
-df[(np.abs(stats.zscore(df)) < 3).all(axis=1)]
+# df = pd.DataFrame(np.random.rand(100, 3))
+# df[(np.abs(stats.zscore(df)) < 3).all(axis=1)]
 
 profile = pandas_profiling.ProfileReport(df)
 profile.to_file('report.html')
@@ -34,6 +34,18 @@ print ("Dados ausentes: " , df.isnull().sum())
 mask = df.isnull().any(axis=1)
 
 data = np.random.randn(20, 4)
-dataFrame = pd.DataFrame(data=data, columns=['A', 'B', 'C', 'D']);
-dataFrame.plot.scatter(x='C', y='D', title= "SCATTER PLOT");
-plot.show(block=True);
+dataFrame = pd.DataFrame(data=data, columns=['A', 'B', 'C', 'D'])
+dataFrame.plot.scatter(x='C', y='D', title= "SCATTER PLOT")
+plot.show(block=True)
+
+dataFrame.plot.box(title="Fatores de Variação", grid=True)
+plot.show(block=True)
+
+dataFrame.plot.line(x="A", title="DPMFi - Variação")
+plot.show(block=True)
+
+dataFrame.plot.bar(x="A", y="B", rot=70, title="Variação A e B")
+plot.show(block=True)
+
+dataFrame.plot.bar(x="C", y="D", rot=70, title="Variação C e D")
+plot.show(block=True)
