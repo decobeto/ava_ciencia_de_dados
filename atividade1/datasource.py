@@ -5,8 +5,7 @@ import openpyxl
 import pandas_profiling
 import numpy as np
 from scipy import stats
-import seaborn as sns
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plot
 
 
 try:    
@@ -34,4 +33,7 @@ print ("Dados ausentes: " , df.isnull().sum())
 
 mask = df.isnull().any(axis=1)
 
-
+data = np.random.randn(20, 4)
+dataFrame = pd.DataFrame(data=data, columns=['A', 'B', 'C', 'D']);
+dataFrame.plot.scatter(x='C', y='D', title= "Scatter plot between two columns of a multi-column DataFrame");
+plot.show(block=True);
