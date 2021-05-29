@@ -21,8 +21,8 @@ print(df)
 print (df.dtypes)
 
 # Remove outliers
-# df = pd.DataFrame(np.random.rand(100, 3))
-# df[(np.abs(stats.zscore(df)) < 3).all(axis=1)]
+df = pd.DataFrame(np.random.rand(100, 3))
+df[(np.abs(stats.zscore(df)) < 3).all(axis=1)]
 
 profile = pandas_profiling.ProfileReport(df)
 profile.to_file('report.html')
