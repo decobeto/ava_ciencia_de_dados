@@ -50,8 +50,13 @@ def preprocess_inputs(df):
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.7, shuffle=True, random_state=1)
     
+    scaler = StandardScaler()
+    scaler.fit(X_train)
+    X_train = pandas.DataFrame(scaler.transform(X_train), index=X_train.index, columns=X_train.columns)
+    X_test = pandas.DataFrame(scaler.transform(X_test), index=X_test.index, columns=X_test.columns)
+    
     return X_train, X_test, y_train, y_test
-  
+
 X_train, X_test, y_train, y_test = preprocess_inputs(data)
 
 print("-----------------------------------")
@@ -64,6 +69,10 @@ model.fit(X_train, y_train)
 print("Modelo Treinado!")
 
 y_pred = model.predict(X_test)
+
+print("-----------------------------------")
+print(data)
+print("-----------------------------------")
 
 rmse = np.sqrt(np.mean((y_test - y_pred)**2))
 print("RMSE: {:.2f}".format(rmse))
