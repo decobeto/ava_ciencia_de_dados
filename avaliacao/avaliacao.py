@@ -1,7 +1,7 @@
 import pandas
 import matplotlib.pyplot as plt
 import numpy as np
-from seaborn import heatmap
+
 
 data_paths=[
     "archive/domestic-consumption.csv",
@@ -20,7 +20,7 @@ def get_means(df):
     df = pandas.concat([countries,mean],axis=1)
     df.columns = ['country',countries.name]
     return df
-  
+
 def make_df(dfs):
     processed_dfs = []
     
@@ -33,7 +33,7 @@ def make_df(dfs):
         df = df.merge(processed_dfs[i], on='country')
     
     return df
-  
+
 data = make_df(df)
 
 print(data)
